@@ -34,19 +34,30 @@
 Для реализации основного меню можно использовать пример ниже или написать свой
 """
 
+account = 0
+history_of_purchases = []
 while True:
+    print('----------------------')
     print('1. пополнение счета')
     print('2. покупка')
     print('3. история покупок')
     print('4. выход')
 
-    choice = input('Выберите пункт меню')
+    choice = input('Выберите пункт меню: ')
     if choice == '1':
-        pass
+        increment = int(input(' Введите сумму пополнения счёта: '))
+        account += increment
+        print('На вашем счету: ', account)
     elif choice == '2':
-        pass
+        price = int(input(' Введите стоимость предполагаемой покупки: '))
+        if price> account:
+            print('Недостаточно средств')
+        else:
+            price_name = input(' Введите наименование покупки: ')
+            history_of_purchases.append((price_name, price))
     elif choice == '3':
-        pass
+        for element in history_of_purchases:
+            print(' ', element[0], element[1])
     elif choice == '4':
         break
     else:

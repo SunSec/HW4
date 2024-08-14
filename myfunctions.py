@@ -12,7 +12,7 @@ def simple_separator():
     Функция создает красивый резделитель из 10-и звездочек (**********)
     :return: **********
     """
-    pass
+    return ("*" * 10)
 
 
 print(simple_separator() == '**********')  # True
@@ -24,7 +24,7 @@ def long_separator(count):
     :param count: количество звездочек
     :return: строка разделитель, примеры использования ниже
     """
-    pass
+    return ("*" * count)
 
 
 print(long_separator(3) == '***')  # True
@@ -38,7 +38,7 @@ def separator(simbol, count):
     :param count: количество повторений
     :return: строка разделитель примеры использования ниже
     """
-    pass
+    return (simbol * count)
 
 
 print(separator('-', 10) == '----------')  # True
@@ -55,7 +55,7 @@ def hello_world():
     ##########
     :return: None
     """
-    pass
+    print('Hello World!')
 
 
 '''
@@ -79,7 +79,7 @@ def hello_who(who='World'):
     :param who: кого мы приветствуем, по умолчанию World
     :return: None
     """
-    pass
+    print('Hello {}!'.format(who))
 
 
 '''
@@ -115,7 +115,10 @@ def pow_many(power, *args):
     :param args: любое количество цифр
     :return: результат вычисления # True -> (1 + 2)**1
     """
-    pass
+    ans = 0
+    for element in args:
+        ans += element
+    return (ans ** power)
 
 
 print(pow_many(1, 1, 2) == 3)  # True -> (1 + 2)**1 == 3
@@ -133,7 +136,8 @@ def print_key_val(**kwargs):
     :param kwargs: любое количество именованных параметров
     :return: None
     """
-    pass
+    for key, value in kwargs.items():
+        print(key, '-->', value)
 
 
 """
@@ -155,10 +159,14 @@ def my_filter(iterable, function):
     Если function от элемента последовательности возвращает True, то элемент входит в новую последовательность иначе нет
     (примеры ниже)
     :param iterable: входаня последовательности
-    :param function: функция фильтрации
+    :param function: функция фильтрацииs
     :return: новая отфильтрованная последовательность
     """
-    pass
+    ans = []
+    for element in iterable:
+        if function(element) == True:
+            ans.append(element)
+    return ans
 
 
 print(my_filter([1, 2, 3, 4, 5], lambda x: x > 3) == [4, 5])  # True
